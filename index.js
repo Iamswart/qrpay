@@ -56,7 +56,7 @@ const QRCodeModel = mongoose.model("QRCode", qrSchema);
 qrQueue.process(async (job) => {
   try {
     const uuid = uuidv4();
-    const data = `https://momo-payment-48xe4nhf9-iamswart.vercel.app/?uuid=${uuid}`;
+    const data = `https://swartjide.com/?uuid=${uuid}`;
     const buffer = await generateCustomQRCode(data);
     const cloudinaryLink = await uploadToCloudinary(buffer); // Notice the change here
     const qrEntry = new QRCodeModel({ uuid, s3URL: cloudinaryLink }); // Maybe rename `s3URL` to a more generic name
